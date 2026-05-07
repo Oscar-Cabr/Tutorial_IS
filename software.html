@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego de Requerimientos</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("fondo.jpg") no-repeat center center/cover;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.15);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      animation: aparecer 0.5s ease;
+    }
+
+    @keyframes aparecer {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #pregunta {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 20px 0;
+      transition: all 0.3s;
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    #btnBueno {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #btnMalo {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #btnIniciar {
+      background-color: #2196F3;
+      color: white;
+    }
+
+    .barra {
+      width: 100%;
+      height: 10px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    #progreso {
+      height: 100%;
+      width: 100%;
+      background: #4CAF50;
+      transition: width 1s linear, background 0.3s;
+    }
+
+    .correcto {
+      animation: flashVerde 0.4s;
+    }
+
+    .incorrecto {
+      animation: flashRojo 0.4s;
+    }
+
+    @keyframes flashVerde {
+      0% {background-color: rgba(0,255,0,0.3);}
+      100% {background-color: transparent;}
+    }
+
+    @keyframes flashRojo {
+      0% {background-color: rgba(255,0,0,0.3);}
+      100% {background-color: transparent;}
+    }
+
+    #resultado {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>¡Identifica los requerimientos!</h1>
+
+  <button id="btnIniciar" onclick="iniciarJuego()">▶ Iniciar juego</button>
+
+  <p id="tiempo">Tiempo: 60</p>
+
+  <div class="barra">
+    <div id="progreso"></div>
+  </div>
+
+  <p id="puntos">Puntos: 0</p>
+  <p id="maximo">Puntuación máxima: 0</p>
+
+  <div id="pregunta">Identifica si los requerimientos están bien o mal definidos.</div>
+
+  <button id="btnBueno" onclick="responder('correcto')" disabled>✅ Bueno</button>
+  <button id="btnMalo" onclick="responder('incorrecto')" disabled>❌ Malo</button>
+
+  <p id="resultado"></p>
+</div>
+
+<script>
+  const preguntasOriginales = [
+{ texto: "El sistema debe procesar pedidos rápidamente", tipo: "incorrecto" },
+{ texto: "El sistema debe procesar pedidos en menos de 1.5 segundos", tipo: "correcto" },
+
+{ texto: "La aplicación debe ser intuitiva", tipo: "incorrecto" },
+{ texto: "El usuario debe poder completar una compra en máximo 3 pasos", tipo: "correcto" },
+
+{ texto: "El sistema debe manejar grandes volúmenes de datos", tipo: "incorrecto" },
+{ texto: "El sistema debe soportar hasta 10,000 registros simultáneos", tipo: "correcto" },
+
+{ texto: "La app debe funcionar bien", tipo: "incorrecto" },
+{ texto: "La app debe operar sin errores críticos durante 8 horas continuas", tipo: "correcto" },
+
+{ texto: "El sistema debe ser seguro", tipo: "incorrecto" },
+{ texto: "El sistema debe bloquear la cuenta tras 5 intentos fallidos", tipo: "correcto" },
+
+{ texto: "La página debe cargar rápido", tipo: "incorrecto" },
+{ texto: "La página debe cargar en menos de 2.5 segundos con conexión estándar", tipo: "correcto" },
+
+{ texto: "El sistema debe ser confiable", tipo: "incorrecto" },
+{ texto: "El sistema debe tener disponibilidad del 99% mensual", tipo: "correcto" },
+
+{ texto: "La app debe ser flexible", tipo: "incorrecto" },
+{ texto: "El sistema debe permitir editar el perfil del usuario en cualquier momento", tipo: "correcto" },
+
+{ texto: "El sistema debe ser fácil de mantener", tipo: "incorrecto" },
+{ texto: "El sistema debe permitir actualizar módulos sin afectar otros componentes", tipo: "correcto" },
+
+{ texto: "El sistema debe ser moderno y atractivo", tipo: "incorrecto" },
+{ texto: "La interfaz debe seguir la guía de estilo Material Design", tipo: "correcto" },
+
+{ texto: "El sistema debe gestionar usuarios correctamente", tipo: "incorrecto" },
+{ texto: "El sistema debe permitir registrar, editar y eliminar usuarios", tipo: "correcto" },
+
+{ texto: "El sistema debe tener buen rendimiento", tipo: "incorrecto" },
+{ texto: "El sistema debe responder consultas en menos de 1 segundo", tipo: "correcto" },
+
+{ texto: "La aplicación debe ser amigable", tipo: "incorrecto" },
+{ texto: "La aplicación debe mostrar mensajes de error claros al usuario", tipo: "correcto" },
+
+{ texto: "El sistema debe ser escalable", tipo: "incorrecto" },
+{ texto: "El sistema debe permitir añadir nuevos módulos sin modificar el núcleo", tipo: "correcto" },
+
+{ texto: "El sistema debe manejar errores", tipo: "incorrecto" },
+{ texto: "El sistema debe registrar errores en un log con fecha y hora", tipo: "correcto" },
+
+{ texto: "La app debe ser rápida y eficiente", tipo: "incorrecto" },
+{ texto: "El sistema debe procesar 100 solicitudes por segundo", tipo: "correcto" },
+
+{ texto: "El sistema debe ser fácil de entender", tipo: "incorrecto" },
+{ texto: "El sistema debe incluir documentación accesible desde el menú principal", tipo: "correcto" },
+
+{ texto: "El sistema debe funcionar correctamente en todo momento", tipo: "incorrecto" },
+{ texto: "El sistema debe recuperarse automáticamente tras una falla en menos de 10 segundos", tipo: "correcto" },
+
+{ texto: "La aplicación debe ser compatible con dispositivos", tipo: "incorrecto" },
+{ texto: "La aplicación debe funcionar en Android 10 o superior", tipo: "correcto" },
+
+{ texto: "El sistema debe ser rápido al guardar datos", tipo: "incorrecto" },
+{ texto: "El sistema debe guardar datos en menos de 500 ms", tipo: "correcto" },
+
+{ texto: "El sistema debe tener buena seguridad", tipo: "incorrecto" },
+{ texto: "El sistema debe cifrar contraseñas usando SHA-256", tipo: "correcto" },
+
+{ texto: "La app debe ser estable", tipo: "incorrecto" },
+{ texto: "La app no debe cerrarse inesperadamente durante su uso", tipo: "correcto" },
+
+{ texto: "El sistema debe permitir múltiples usuarios", tipo: "incorrecto" },
+{ texto: "El sistema debe permitir hasta 50 usuarios concurrentes", tipo: "correcto" },
+
+{ texto: "El sistema debe ser rápido al iniciar", tipo: "incorrecto" },
+{ texto: "El sistema debe iniciar en menos de 3 segundos", tipo: "correcto" },
+
+{ texto: "El sistema debe ser adaptable", tipo: "incorrecto" },
+{ texto: "La interfaz debe ajustarse automáticamente a pantallas móviles", tipo: "correcto" },
+
+{ texto: "El sistema debe ser usable", tipo: "incorrecto" },
+{ texto: "El usuario debe poder completar un registro en menos de 2 minutos", tipo: "correcto" },
+
+{ texto: "El sistema debe ser eficiente en memoria", tipo: "incorrecto" },
+{ texto: "El sistema no debe consumir más de 200 MB de RAM", tipo: "correcto" },
+
+{ texto: "El sistema debe ser accesible", tipo: "incorrecto" },
+{ texto: "El sistema debe permitir navegación mediante teclado", tipo: "correcto" },
+
+{ texto: "El sistema debe ser confiable siempre", tipo: "incorrecto" },
+{ texto: "El sistema debe tener un tiempo medio entre fallos de 100 horas", tipo: "correcto" },
+
+{ texto: "El sistema debe ser fácil de instalar", tipo: "incorrecto" },
+{ texto: "El sistema debe instalarse en menos de 5 minutos", tipo: "correcto" },
+
+{ texto: "El sistema debe ser rápido al buscar", tipo: "incorrecto" },
+{ texto: "El sistema debe devolver resultados de búsqueda en menos de 1 segundo", tipo: "correcto" },
+
+{ texto: "El sistema debe ser claro", tipo: "incorrecto" },
+{ texto: "El sistema debe mostrar mensajes de confirmación al completar acciones", tipo: "correcto" },
+
+{ texto: "El sistema debe funcionar bien con internet lento", tipo: "incorrecto" },
+{ texto: "El sistema debe operar con conexiones de 1 Mbps", tipo: "correcto" },
+
+{ texto: "El sistema debe ser robusto", tipo: "incorrecto" },
+{ texto: "El sistema debe continuar funcionando ante entradas inválidas", tipo: "correcto" },
+
+{ texto: "El sistema debe ser organizado", tipo: "incorrecto" },
+{ texto: "El sistema debe clasificar los registros por fecha automáticamente", tipo: "correcto" },
+
+{ texto: "El sistema debe ser flexible para cambios", tipo: "incorrecto" },
+{ texto: "El sistema debe permitir modificar configuraciones sin reiniciar", tipo: "correcto" },
+
+{ texto: "El sistema debe ser amigable para todos", tipo: "incorrecto" },
+{ texto: "El sistema debe incluir opción de idioma español e inglés", tipo: "correcto" },
+
+{ texto: "El sistema debe funcionar en varios navegadores", tipo: "incorrecto" },
+{ texto: "El sistema debe funcionar en Chrome, Firefox y Edge", tipo: "correcto" },
+
+{ texto: "El sistema debe validar correctamente los datos", tipo: "incorrecto" },
+{ texto: "El sistema debe validar que el correo tenga formato válido antes de guardarlo", tipo: "correcto" },
+
+{ texto: "La aplicación debe ser rápida al mostrar resultados", tipo: "incorrecto" },
+{ texto: "La aplicación debe mostrar resultados en menos de 1 segundo tras la consulta", tipo: "correcto" },
+
+{ texto: "El sistema debe ser seguro contra ataques", tipo: "incorrecto" },
+{ texto: "El sistema debe bloquear direcciones IP tras 10 intentos fallidos en 1 minuto", tipo: "correcto" },
+
+{ texto: "El sistema debe tener buena interfaz", tipo: "incorrecto" },
+{ texto: "El sistema debe mostrar un menú principal con acceso a todas las funciones", tipo: "correcto" },
+
+{ texto: "El sistema debe ser fácil de navegar", tipo: "incorrecto" },
+{ texto: "El usuario debe poder acceder a cualquier sección en máximo 3 clics", tipo: "correcto" },
+
+{ texto: "El sistema debe manejar bien los errores", tipo: "incorrecto" },
+{ texto: "El sistema debe mostrar mensajes de error específicos para cada fallo", tipo: "correcto" },
+
+{ texto: "El sistema debe ser compatible con diferentes resoluciones", tipo: "incorrecto" },
+{ texto: "El sistema debe adaptarse a resoluciones desde 1280x720 hasta 1920x1080", tipo: "correcto" },
+
+{ texto: "El sistema debe ser confiable en el tiempo", tipo: "incorrecto" },
+{ texto: "El sistema debe mantener integridad de datos después de reinicios inesperados", tipo: "correcto" },
+
+{ texto: "El sistema debe ser eficiente al almacenar datos", tipo: "incorrecto" },
+{ texto: "El sistema debe comprimir archivos mayores a 5MB antes de almacenarlos", tipo: "correcto" },
+
+{ texto: "El sistema debe ser accesible para todos", tipo: "incorrecto" },
+{ texto: "El sistema debe permitir aumentar el tamaño de fuente desde la configuración", tipo: "correcto" },
+
+{ texto: "El sistema debe responder correctamente a solicitudes", tipo: "incorrecto" },
+{ texto: "El sistema debe devolver código HTTP 200 en solicitudes exitosas", tipo: "correcto" },
+
+{ texto: "El sistema debe ser fácil de usar para principiantes", tipo: "incorrecto" },
+{ texto: "El sistema debe incluir un tutorial inicial para nuevos usuarios", tipo: "correcto" }
+];
+
+  let preguntas = [];
+  let indice = 0;
+  let puntos = 0;
+  let tiempo = 60;
+  let intervalo = null;
+  let juegoActivo = false;
+
+  const preguntaEl = document.getElementById("pregunta");
+  const puntosEl = document.getElementById("puntos");
+  const tiempoEl = document.getElementById("tiempo");
+  const resultadoEl = document.getElementById("resultado");
+  const maximoEl = document.getElementById("maximo");
+  const progreso = document.getElementById("progreso");
+
+  const btnBueno = document.getElementById("btnBueno");
+  const btnMalo = document.getElementById("btnMalo");
+  const btnIniciar = document.getElementById("btnIniciar");
+
+  const sonidoInicio = new Audio("media/sonidos/start.mp3");
+  const sonidoCorrecto = new Audio("media/sonidos/correct.mp3");
+  const sonidoIncorrecto = new Audio("media/sonidos/wrong.mp3");
+  const sonidoFin = new Audio("media/sonidos/gameover.mp3");
+  const sonidoTiempo = new Audio("media/sonidos/timeout.mp3");
+
+  let maxPuntos = localStorage.getItem("maxPuntos") || 0;
+  maximoEl.textContent = "Puntuación máxima: " + maxPuntos;
+
+  function mezclar(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  function iniciarJuego() {
+    sonidoInicio.currentTime = 0;
+    sonidoInicio.play();
+
+    indice = 0;
+    puntos = 0;
+    tiempo = 60;
+    juegoActivo = true;
+
+    preguntas = [...preguntasOriginales];
+    mezclar(preguntas);
+
+    puntosEl.textContent = "Puntos: 0";
+    tiempoEl.textContent = "Tiempo: " + tiempo;
+    resultadoEl.textContent = "";
+    progreso.style.width = "100%";
+
+    btnBueno.disabled = false;
+    btnMalo.disabled = false;
+    btnIniciar.disabled = true;
+
+    mostrarPregunta();
+
+    intervalo = setInterval(() => {
+      tiempo--;
+      tiempoEl.textContent = "Tiempo: " + tiempo;
+
+      progreso.style.width = (tiempo / 60) * 100 + "%";
+
+      if (tiempo > 30) progreso.style.background = "#4CAF50";
+      else if (tiempo > 15) progreso.style.background = "#FFC107";
+      else progreso.style.background = "#f44336";
+
+      if (tiempo <= 0) {
+        sonidoTiempo.currentTime = 0;
+        sonidoTiempo.play();
+        terminarJuego();
+      }
+    }, 1000);
+  }
+
+  function mostrarPregunta() {
+    if (indice < preguntas.length) {
+      preguntaEl.classList.add("fade");
+      setTimeout(() => {
+        preguntaEl.textContent = preguntas[indice].texto;
+        preguntaEl.classList.remove("fade");
+      }, 200);
+    } else {
+      terminarJuego();
+    }
+  }
+
+  function responder(respuesta) {
+    if (!juegoActivo) return;
+
+    const correcta = preguntas[indice].tipo;
+
+    document.body.classList.add(respuesta === correcta ? "correcto" : "incorrecto");
+
+    if (respuesta === correcta) {
+      puntos++;
+      sonidoCorrecto.currentTime = 0;
+      sonidoCorrecto.play();
+    } else {
+      sonidoIncorrecto.currentTime = 0;
+      sonidoIncorrecto.play();
+    }
+
+    puntosEl.textContent = "Puntos: " + puntos;
+
+    setTimeout(() => {
+      document.body.classList.remove("correcto", "incorrecto");
+      indice++;
+      mostrarPregunta();
+    }, 400);
+  }
+
+  function terminarJuego() {
+    juegoActivo = false;
+    clearInterval(intervalo);
+
+    sonidoFin.currentTime = 0;
+    sonidoFin.play();
+
+    if (puntos > maxPuntos) {
+      maxPuntos = puntos;
+      localStorage.setItem("maxPuntos", maxPuntos);
+      maximoEl.textContent = "Puntuación máxima: " + maxPuntos;
+      resultadoEl.textContent = "🏆 ¡Nuevo récord! " + puntos + " / " + preguntas.length;
+    } else {
+      resultadoEl.textContent = "Resultado final: " + puntos + " / " + preguntas.length;
+    }
+
+    preguntaEl.textContent = "Juego terminado";
+
+    btnBueno.disabled = true;
+    btnMalo.disabled = true;
+    btnIniciar.disabled = false;
+  }
+</script>
+
+</body>
+</html>
