@@ -68,9 +68,9 @@
                         el Mental Health Care Patient Management System (MHC-PMS), un sistema de gestión de
                         pacientes de salud mental. El ejemplo es valioso porque muestra cómo un único requerimiento
                         del usuario, redactado en una línea, se descompone en varios requerimientos del sistema mucho
-                        más detallados A nivel de requerimiento del usuario, el enunciado es breve: el MHC-PMS elaborará mensualmente informes administrativos que revelen el costo de los medicamentos prescritos por
-                        cada clínica durante ese mes (Sommerville, 2011, §4.1.1, p. 85). Esa misma necesidad, expresada como requerimientos del sistema, se descompone en cinco sub-requerimientos numerados
-                        que cubren detalles operativos como el día de generación, la impresión automática después
+                        más detallados. A nivel de requerimiento del usuario, el enunciado es breve: el MHC-PMS elaborará mensualmente informes administrativos que revelen el costo de los medicamentos prescritos por
+                        cada clínica durante ese mes (Sommerville, 2011, §4.1.1, p. 85). Esa misma necesidad, expresada como requerimientos del sistema, se descompone en cinco sub-requerimientos numerados.
+                        A nivel de requerimiento del usuario, el enunciado es breve como el día de generación, la impresión automática después
                         de las 17:30, el formato del reporte por clínica, el manejo de unidades de dosis distintas y la
                         restricción de acceso a usuarios autorizados (Sommerville, 2011, §4.1.1, p. 85).
                         Otro ejemplo emblemático del libro es el del requerimiento ambiguo: «Un usuario podrá buscar en todas las clínicas las listas de citas». La frase parece simple, pero esconde una trampa de
@@ -362,8 +362,8 @@ El ejemplo demuestra que la utilización de requerimientos funcionales estructur
                     <br>
                         <h5>
                             Laplante (2017) ancla casi cada concepto del libro en tres casos de estudio: un sistema de
-                            manejo de equipajes (baggage handling system), un punto de venta para una tienda de mascotas
-                            (pet store POS system) y un hogar inteligente (smart home system).
+                            manejo de equipajes (<em>baggage handling system</em>), un punto de venta para una tienda de mascotas
+                            (<em>pet store POS system</em>) y un hogar inteligente (<em>smart home system</em>).
                             Para el sistema de manejo de equipaje, el autor ofrece una muestra que ilustra el uso del
                             verbo «shall» y de la numeración jerárquica: «El sistema deberá manejar hasta 20 equipajes
                             por minuto», y, como ejemplo de comportamiento prohibido, «cuando el sistema esté en modo inactivo, la banda transportadora no deberá moverse» (Laplante, 2017, Cap. 1, p. 7)33
@@ -515,23 +515,23 @@ El ejemplo demuestra que los requerimientos funcionales bien redactados permiten
                             Robertson y Robertson (2012) construyen toda la metodología Volere alrededor del proyecto
                             IceBreaker, un sistema de planeación del deshielo de carreteras. El ejemplo introductorio, que
                             aparece muy temprano en el libro, ya muestra la forma canónica «The product shall...» en
-                            acción: «The product shall produce a schedule of all roads upon which ice is predicted to form
-                            within the given time parameter» (Robertson & Robertson, 2012, Cap. 1, p. 10)36. La definición
-                            canónica del Capítulo 10 se ilustra con un ejemplo análogo: «The product shall predict which
-                            road sections will freeze within the selected time parameters» (Robertson & Robertson, 2012,
+                            acción: <em>«The product shall produce a schedule of all roads upon which ice is predicted to form
+                            within the given time parameter»</em> (Robertson & Robertson, 2012, Cap. 1, p. 10)36. La definición
+                            canónica del Capítulo 10 se ilustra con un ejemplo análogo: <em>«The product shall predict which
+                            road sections will freeze within the selected time parameters»</em> (Robertson & Robertson, 2012,
                             Cap. 10, p. 223).
                             El verdadero valor pedagógico aparece, sin embargo, en la descomposición de un escenario
                             de caso de uso. Partiendo del paso «El ingeniero proporciona una fecha de programación y un
-                            identificador de distrito», los autores derivan cinco FRs atómicos: (i) «The product shall accept
-                            a scheduling date»; (ii) «The product shall warn if the scheduling date is neither today nor
-                            the next day»; (iii) «The product shall accept a valid district identifier»; (iv) «The product
+                            identificador de distrito», los autores derivan cinco FRs atómicos: (i) <em>«The product shall accept
+                            a scheduling date»</em>; (ii) <em>«The product shall warn if the scheduling date is neither today nor
+                            the next day»</em>; (iii) <em>«The product shall accept a valid district identifier»</em>; (iv) <em>«The product
                             shall verify that the district is within the de-icing responsibility of the area covered by this
-                            installation»; (v) «The product shall verify that the district is the one wanted by the engineer»
+                            installation»</em>; (v) <em>«The product shall verify that the district is the one wanted by the engineer»</em>
                             (Robertson & Robertson, 2012, Cap. 10, p. 227)37. Cinco oraciones, cinco verbos activos, cinco
                             cosas verificables. Es la disciplina Volere en acción.
                             El ejemplo más recordado del libro es el del par Description + Rationale aplicado al mismo
-                            proyecto: Description: «The product shall record roads that have been treated»; Rationale: «To
-                            be able to schedule untreated roads and highlight potential danger» (Robertson & Robertson,
+                            proyecto: <em>Description:</em> <em>«The product shall record roads that have been treated»</em>; <em>Rationale:</em> <em>«To
+                            be able to schedule untreated roads and highlight potential danger»</em> (Robertson & Robertson,
                             2012, pp. 229–230). El rationale, en este caso, eleva un FR aparentemente trivial a la categoría
                             de requerimiento crítico: de él dependen vidas humanas en carreteras heladas.
                         </h5>
@@ -669,7 +669,7 @@ El ejemplo demuestra que la descomposición de escenarios en requerimientos func
                     <br>
                     <h5>
                         Cuando Robertson y Robertson (2012) formalizan la clase Functional Requirement en el
-                        Apéndice D del libro, ilustran el concepto con cuatro ejemplos cortos pero altamente representativos: «calcular la tarifa», «analizar la composición química», «registrar el cambio de nombre»«encontrar la nueva ruta» (Robertson & Robertson, 2012, Apéndice D, p. 500). La elección no
+                        Apéndice D del libro, ilustran el concepto con cuatro ejemplos cortos pero altamente representativos: «calcular la tarifa», «analizar la composición química», «registrar el cambio de nombre», «encontrar la nueva ruta» (Robertson & Robertson, 2012, Apéndice D, p. 500). La elección no
                         es casual: cada uno de los cuatro verbos —calcular, analizar, registrar, encontrar— corresponde a una de las operaciones CRUD (create, read, update, delete) que los autores consideran
                         consustanciales a todo FR
                     </h5>
@@ -983,7 +983,7 @@ El ejemplo demuestra que las plantillas estructuradas y las convenciones de reda
                         </h5>
                         
                         <br></br>
-                        <img src="media/img/E7.png" border="0" width="650" alt=""><center><small>(Figura: Cajero ATM con sesores.)</small></center>
+                        <img src="media/img/E7.png" border="0" width="650" alt=""><center><small>(Figura: Cajero ATM con sensores.)</small></center>
                         <br></br>
 
                         <a href="#" onclick="toggleVisibility('hiddenText020g1'); return false;" style="

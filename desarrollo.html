@@ -64,7 +64,7 @@
 	</h5>
 	<h4>3.2.3. La mirada industrial de Laplante</h4>
 	<h5>
-		Laplante (2017) aporta una formulación más industrial, pero igualmente compacta: los functional requirements (FRs) describen los servicios que el sistema debe proveer y cómo el sistema
+		Laplante (2017) aporta una formulación más industrial, pero igualmente compacta: los <em>functional requirements</em> (FRs) describen los servicios que el sistema debe proveer y cómo el sistema
 		reaccionará ante sus entradas (Laplante, 2017, Cap. 1, p. 6)1.
 		Y, con el mismo énfasis que Sommerville, añade que los requerimientos funcionales necesitan establecer explícitamente ciertos
 		comportamientos que el sistema no debe ejecutar (Laplante, 2017, Cap. 1, p. 6)2.
@@ -72,9 +72,9 @@
 	<h4>3.2.4. La voz normativa de SWEBOK</h4>
 	<h5>
 		Bourque y Fairley (2014), como guía de cuerpo de conocimiento mantenida por la IEEE,
-		ofrece la formulación más concisa y normativa: los requerimientos funcionales describen las
+		ofrecen la formulación más concisa y normativa: los requerimientos funcionales describen las
 		funciones que el software debe ejecutar; por ejemplo, formatear un texto o modular una señal;
-		a veces se les conoce como capabilities o features (Bourque & Fairley, 2014, Software Requirements KA, §1.3, p. 1-3). La verdadera novedad operativa que SWEBOK aporta no es la frase
+		a veces se les conoce como <em>capabilities</em> o <em>features</em> (Bourque & Fairley, 2014, Software Requirements KA, §1.3, p. 1-3). La verdadera novedad operativa que SWEBOK aporta no es la frase
 		descriptiva, sino el criterio de identificación: un requerimiento funcional puede describirse como
 		aquél para el cual puede escribirse un conjunto finito de pasos de prueba que validen su comportamiento (Bourque & Fairley, 2014, Software Requirements KA, §1.3, p. 1-3). Esto convierte
 		la testabilidad en el sello distintivo: si no puede probarse, no es un requerimiento funcional bien
@@ -175,7 +175,7 @@
 		Wiegers y Beatty (2013) introducen una distinción más sofisticada que se ha vuelto referencia
 		industrial: los requerimientos del software incluyen tres niveles distintos: requerimientos de
 		negocio, requerimientos del usuario y requerimientos funcionales; adicionalmente, todo sistema
-		tiene una colección de requerimientos no funcionales (Wiegers & Beatty, 2013, p. 7). Una feature
+		tiene una colección de requerimientos no funcionales (Wiegers & Beatty, 2013, p. 7). Una <em>feature</em>
 		consiste en una o más capacidades del sistema lógicamente relacionadas que proveen valor a
 		un usuario y son descritas por un conjunto de requerimientos funcionales (Wiegers & Beatty,
 		2013, p. 7).
@@ -214,14 +214,14 @@
 	</h5>
 	<h4>3.5.3. Los NFR como atributos sobre los FR	</h4>
 	<h5>
-		Bourque y Fairley (2014) establece la relación estructural más clara que ofrece la literatura:
+		Bourque y Fairley (2014) establecen la relación estructural más clara que ofrece la literatura:
 		los requerimientos de calidad del software son en realidad atributos de (o restricciones sobre)
 		los requerimientos funcionales (lo que el sistema hace); este KA busca claridad usando software
 		quality en el sentido más amplio y usando los requerimientos de calidad del software como
 		restricciones sobre los requerimientos funcionales (Bourque & Fairley, 2014, Software Quality
 		KA, p. 10-1).
-		Y de manera complementaria: los requerimientos no funcionales son aquellos que actúan para restringir la solución; a veces se les conoce como constraints o quality requirements; pueden
-		clasificarse adicionalmente en requerimientos de rendimiento, mantenibilidad, seguridad (safety), confiabilidad, seguridad (security), interoperabilidad u otros (Bourque & Fairley, 2014,
+		Y de manera complementaria: los requerimientos no funcionales son aquellos que actúan para restringir la solución; a veces se les conoce como <em>constraints</em> o <em>quality requirements</em>; pueden
+		clasificarse adicionalmente en requerimientos de rendimiento, mantenibilidad, seguridad (<em>safety</em>), confiabilidad, seguridad (<em>security</em>), interoperabilidad u otros (Bourque & Fairley, 2014,
 		Software Requirements KA, §1.3, p. 1-3).
 		Una idea para llevarse a casa: el FR es el contenedor («qué hace el sistema»); el NFR es el
 		calificativo («qué tan bien lo hace»). No son hermanos paralelos, sino padre e hijo conceptuales
@@ -302,29 +302,29 @@
 		de sus ejemplos es revelador: los requerimientos están escritos como una única oración con un
 		único verbo; cuando se escribe esta única oración, se hace el requerimiento mucho más fácil de
 		probar y mucho menos susceptible a la ambigüedad (Robertson & Robertson, 2012, Cap. 10,
-		p. 228). La forma canónica es «The product shall...»: hace la oración activa y se enfoca en
+		p. 228). La forma canónica es <em>«The product shall...»</em>: hace la oración activa y se enfoca en
 		comunicar lo que el producto pretende hacer (Robertson & Robertson, 2012, p. 228).
-		Hay un anti-patrón frecuente: a veces las personas usan una mezcla de «shall», «must»,
-		«will», «might», «could», etc., para indicar la prioridad de un requerimiento; esta práctica
+		Hay un anti-patrón frecuente: a veces las personas usan una mezcla de <em>«shall»</em>, <em>«must»</em>,
+		<em>«will»</em>, <em>«might»</em>, <em>«could»</em>, etc., para indicar la prioridad de un requerimiento; esta práctica
 		resulta en confusión semántica y se aconseja contra ella; en su lugar, debe usarse una forma
-		consistente para escribir las descripciones de los requerimientos —«The product shall...» es
-		la más común— y usar un atributo separado
+		consistente para escribir las descripciones de los requerimientos —<em>«The product shall...»</em> es
+		la más común— y usar un atributo separado del requerimiento para identificar su prioridad.
 	</h5>
 	<h4>3.7.5. La estructura Description + Rationale	</h4>
 	<h5>
 		Una de las contribuciones más originales de Robertson y Robertson (2012) al campo es exigir
 		que cada requerimiento lleve una explicación de por qué existe. Se sugiere —fuertemente— que
-		se añada un rationale a los requerimientos para mostrar por qué existe el requerimiento; en
+		se añada un <em>rationale</em> a los requerimientos para mostrar por qué existe el requerimiento; en
 		algunos casos puede ser obvio, pero en muchas circunstancias es un componente crucial del
 		requerimiento (Robertson & Robertson, 2012, p. 229).
-		Un ejemplo concreto: Description: «The product shall record roads that have been treated.»
-		Rationale: «To be able to schedule untreated roads and highlight potential danger.» (Robertson
+		Un ejemplo concreto: Description: <em>«The product shall record roads that have been treated.»</em>
+		Rationale: <em>«To be able to schedule untreated roads and highlight potential danger.»</em> (Robertson
 		& Robertson, 2012, pp. 229–230).
-		¿Por qué importa el rationale? Al incluir un rationale con la descripción, el requerimiento
+		¿Por qué importa el <em>rationale</em>? Al incluir un <em>rationale</em> con la descripción, el requerimiento
 		mismo se vuelve más útil; al saber por qué algo está ahí, los desarrolladores y los testers saben
 		mucho más sobre el esfuerzo que deben dedicarle; también indica a los mantenedores futuros
 		por qué existe el requerimiento en primer lugar (Robertson & Robertson, 2012, p. 230)20. Y
-		como bono: el rationale también ayuda a superar la posibilidad de escribir inadvertidamente
+		como bono: el <em>rationale</em> también ayuda a superar la posibilidad de escribir inadvertidamente
 		una solución en lugar de la necesidad real (Robertson & Robertson, 2012, p. 230)21
 		.		
 	</h5>
@@ -347,7 +347,7 @@
 		Wiegers y Beatty (2013) ofrecen una convención más rica: el enfoque más simple da a cada
 		requerimiento un número de secuencia único, como UC-9 o FR-26; el prefijo indica el tipo de
 		requerimiento, como FR para requerimiento funcional (Wiegers & Beatty, 2013, p. 187)26. Y
-		para cuando el FR es jerárquico: una buena convención es escribir el requerimiento padre para que parezca un título, encabezado o nombre de feature, en lugar de parecerse a un requerimiento
+		para cuando el FR es jerárquico: una buena convención es escribir el requerimiento padre para que parezca un título, encabezado o nombre de <em>feature</em>, en lugar de parecerse a un requerimiento
 		funcional en sí mismo; los requerimientos hijos de ese padre, en agregado, entregan la capacidad
 		descrita en el padre (Wiegers & Beatty, 2013, p. 188)27
 		.
