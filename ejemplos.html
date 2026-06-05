@@ -32,12 +32,12 @@
         </section>
         <h5>
             Las definiciones formales y las plantillas adquieren su sentido pleno cuando se aplican a
-            casos concretos. Esta sección recoge los ejemplos de requerimientos funcionales que aparecen
-            en la literatura analizada, agrupados por autor y por sistema de estudio. Conservamos, donde
-            es posible, la formulación original con la que cada autor presenta su FR, porque ahí está la
-            lección: no son enunciados inventados para ilustrar una idea, sino casos de proyectos reales o
-            de referencia que cada autor ha utilizado para enseñar a redactar.
-            
+            casos concretos. Esta sección recorre los casos que la literatura usa para enseñar a redactar
+            FR, agrupados por autor y por sistema de estudio. Conservamos, donde
+            es posible, la formulación original con la que cada autor presenta su requerimiento, porque ahí está la
+            lección: no son enunciados inventados para ilustrar una idea, sino proyectos reales o
+            de referencia que cada autor ha empleado para enseñar a redactar.
+
         </h5>
 
 		<section class="wrapper">
@@ -47,19 +47,7 @@
                     <li><h3>1. Los ejemplos de Sommerville: el sistema MHC-PMS</h3></li>
          
 			        
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020a'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                    
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 1 </i></strong>
-                    </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020a'); return false;" class="desarrollo-ejemplo"><span class="ej-num">1</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">Los ejemplos de Sommerville — el sistema MHC-PMS</span></span></a>
                     <div style="display: none; margin-top: 10px;" id="hiddenText020a">
                     <p>
                     <h4>
@@ -69,8 +57,8 @@
                         pacientes de salud mental. El ejemplo es valioso porque muestra cómo un único requerimiento
                         del usuario, redactado en una línea, se descompone en varios requerimientos del sistema mucho
                         más detallados. A nivel de requerimiento del usuario, el enunciado es breve: el MHC-PMS elaborará mensualmente informes administrativos que revelen el costo de los medicamentos prescritos por
-                        cada clínica durante ese mes (Sommerville, 2011, §4.1.1, p. 85). Esa misma necesidad, expresada como requerimientos del sistema, se descompone en cinco sub-requerimientos numerados.
-                        A nivel de requerimiento del usuario, el enunciado es breve como el día de generación, la impresión automática después
+                        cada clínica durante ese mes (Sommerville, 2011, §4.1.1, p. 85). Esa misma necesidad, expresada como requerimientos del sistema, se descompone en cinco sub-requerimientos numerados
+                        que detallan el día de generación, la impresión automática después
                         de las 17:30, el formato del reporte por clínica, el manejo de unidades de dosis distintas y la
                         restricción de acceso a usuarios autorizados (Sommerville, 2011, §4.1.1, p. 85).
                         Otro ejemplo emblemático del libro es el del requerimiento ambiguo: «Un usuario podrá buscar en todas las clínicas las listas de citas». La frase parece simple, pero esconde una trampa de
@@ -80,27 +68,30 @@
                         de forma que simplifique su implementación (Sommerville, 2011, Cap. 4, p. 86). La lección es
                         directa: la ambigüedad nunca se resuelve a favor del usuario, sino del desarrollador.
                         </h5>
+                        <div class="procedimiento">
+                            <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                            <ol>
+                                <li>Lee el contexto del sistema presentado (MHC-PMS) y el FR del usuario sobre los informes mensuales.</li>
+                                <li>Observa cómo un único FR del usuario se descompone en cinco sub-requerimientos del sistema.</li>
+                                <li>Analiza el caso del requerimiento ambiguo de búsqueda de citas en todas las clínicas.</li>
+                                <li>Extrae la lección: la ambigüedad se resuelve a favor del desarrollador, no del usuario.</li>
+                            </ol>
+                        </div>
                         <br></br>
                         <img src="media/img/E1.png" border="0" width="650" alt=""><center><small>(Figura: MHC-PMS)</small></center>
                         <br></br>
-                        <a href="#" onclick="toggleVisibility('hiddenText020a1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020a1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020a1">
-                            <p><br>
-El sistema MHC-PMS necesitaba generar informes administrativos mensuales sobre el costo de los medicamentos prescritos en cada clínica. El problema era que un requerimiento general del usuario no contenía suficiente detalle para definir completamente el comportamiento esperado del sistema, lo que podía provocar interpretaciones incorrectas y errores durante el desarrollo. Además, algunos requerimientos podían redactarse de forma ambigua, causando distintas interpretaciones entre usuarios y desarrolladores.
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>El sistema MHC-PMS debía generar informes administrativos mensuales con el costo de los medicamentos prescritos en cada clínica.</li>
+                                <li>El requerimiento general del usuario no contenía suficiente detalle para definir completamente el comportamiento esperado del sistema.</li>
+                                <li>Esa falta de detalle podía provocar interpretaciones incorrectas y errores durante el desarrollo.</li>
+                                <li>Algunos requerimientos podían redactarse de forma ambigua, causando distintas interpretaciones entre usuarios y desarrolladores.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -113,24 +104,16 @@ El sistema MHC-PMS necesitaba generar informes administrativos mensuales sobre e
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020a2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020a2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020a2">
-                            <p><br>
-Sommerville aplica el concepto de requerimientos funcionales mostrando cómo un requerimiento de usuario de alto nivel debe descomponerse en varios requerimientos del sistema más específicos y verificables. El requerimiento inicial relacionado con los informes mensuales se divide en sub-requerimientos que especifican aspectos como la fecha de generación, la impresión automática, el formato del reporte, el manejo de diferentes unidades de dosis y las restricciones de acceso. También se aplica el concepto de ambigüedad mediante el ejemplo de búsqueda de citas en clínicas, donde una misma frase puede interpretarse de diferentes maneras dependiendo de cómo esté redactada.
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Sommerville muestra cómo un FR de usuario de alto nivel se descompone en FR del sistema específicos y verificables.</li>
+                                <li>El FR inicial sobre los informes mensuales se divide en sub-requerimientos: fecha de generación, impresión automática, formato del reporte, manejo de unidades de dosis y restricciones de acceso.</li>
+                                <li>También se aplica el concepto de ambigüedad con el ejemplo de búsqueda de citas: una misma frase admite varias lecturas según cómo se redacte.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -143,24 +126,17 @@ Sommerville aplica el concepto de requerimientos funcionales mostrando cómo un 
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020a3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020a3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020a3">
-                            <p><br>
-El ejemplo demuestra que los requerimientos funcionales deben escribirse de manera clara, precisa y verificable para evitar interpretaciones ambiguas. También evidencia que un requerimiento general necesita transformarse en varios requerimientos detallados para asegurar que el sistema implemente exactamente lo que el usuario necesita. Finalmente, se concluye que una mala redacción puede ocasionar que el desarrollador implemente la solución más sencilla para él y no necesariamente la que esperaba el usuario.
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los FR deben escribirse de manera clara, precisa y verificable para evitar interpretaciones ambiguas.</li>
+                                <li>Un FR general necesita transformarse en varios FR detallados para asegurar que el sistema implemente lo que el usuario necesita.</li>
+                                <li>Una mala redacción puede llevar al desarrollador a implementar la solución más sencilla para él, no la que esperaba el usuario.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -193,64 +169,51 @@ El ejemplo demuestra que los requerimientos funcionales deben escribirse de mane
                     <p>━━━━━━━━━━━━━━━━━━━ ◦ ❖ ◦ ━━━━━━━━━━━━━━━━━</p>
                     <li><h3>2. El ejemplo de la bomba de insulina aplicado a la plantilla de siete campos</h3></li>
                     <br>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020b'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 2 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020b'); return false;" class="desarrollo-ejemplo"><span class="ej-num">2</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">El ejemplo de la bomba de insulina aplicado a la plantilla de siete campos — </span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020b">
                     <p>
                     <h4>
                     <br>
                         <h5>
-                            El segundo gran caso de estudio que recorre el libro de Sommerville (2011) es el sistema
-                            de control de una bomba de insulina. Aquí el autor aplica los cinco lineamientos de redacción
-                            en lenguaje natural, ofreciendo un FR como: «Si se requiere, cada 10 minutos el sistema medirá el azúcar en la sangre y administrará insulina», acompañado de la razón explícita entre
-                            paréntesis —los cambios de azúcar en sangre son relativamente lentos, por lo que mediciones
-                            más frecuentes serían innecesarias y mediciones menos periódicas podrían conducir a niveles de
-                            azúcar elevados— (Sommerville, 2011, p. 96)32.
-                            El mismo sistema reaparece en la plantilla estructurada de siete campos: la Función es
-                            calcular la dosis de insulina cuando el azúcar actual está entre 3 y 7 unidades; las Entradas
-                            son la lectura actual del sensor y dos lecturas previas; la Salida es CompDose, la dosis que
-                            se administrará al ciclo de control principal; la Acción calcula CompDose en función de la
-                            pendiente del nivel de azúcar; la Precondición exige que el depósito contenga al menos una
-                            dosis máxima; la Postcondición actualiza las lecturas previas; y los Efectos colaterales son
-                            inexistentes (Sommerville, 2011, §4.3.2, p. 98). Todo ese aparato no es burocrático: elimina
-                            ambigüedad, fuerza a pensar en pre y postcondiciones, y entrega al equipo de pruebas una base
-                            verificable
+                            Sommerville (2011) vuelve sobre la bomba de insulina para mostrar cómo se ve un
+                            mismo FR en dos registros. En lenguaje natural, formula: «Si se requiere, cada 10 minutos
+                            el sistema medirá el azúcar en la sangre y administrará insulina», e incluye entre
+                            paréntesis la razón de esa frecuencia (Sommerville, 2011, p. 96)32. En la plantilla
+                            estructurada de siete campos, el mismo comportamiento se desglosa en Función (calcular la
+                            dosis cuando el azúcar está entre 3 y 7 unidades), Entradas (lectura actual y dos
+                            previas), Salida (CompDose), Acción (calcular en función de la pendiente),
+                            Precondición (depósito con al menos una dosis máxima), Postcondición (lecturas
+                            previas actualizadas) y Efectos colaterales (ninguno) (Sommerville, 2011, §4.3.2,
+                            p. 98). El cambio de registro no es burocracia: cierra la ambigüedad del lenguaje
+                            natural y entrega al equipo de pruebas una base verificable.
                         </h5>
+
+                        <div class="procedimiento">
+                            <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                            <ol>
+                                <li>Lee el FR en lenguaje natural sobre la bomba de insulina y observa la razón explícita entre paréntesis.</li>
+                                <li>Compara esa formulación con la versión desglosada en la plantilla de siete campos.</li>
+                                <li>Identifica qué campo responde a cuál elemento del lenguaje natural (función, entradas, salidas, etc.).</li>
+                                <li>Extrae la lección: el cambio de registro cierra la ambigüedad y entrega una base verificable.</li>
+                            </ol>
+                        </div>
 
                         <br></br>
                         <img src="media/img/E2.png" border="0" width="650" alt=""><center><small>(Figura: Bomba de insulina.)</small></center>
                         <br></br>
 
                         <br>
-                        <a href="#" onclick="toggleVisibility('hiddenText020b1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020b1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020b1">
-                            <p><br>
-El sistema de control de la bomba de insulina necesitaba administrar dosis correctas de insulina a partir de mediciones periódicas del nivel de azúcar en sangre. El problema principal era garantizar que el comportamiento del sistema estuviera claramente definido para evitar errores médicos, ambigüedades en la implementación y fallas en la administración de insulina que pudieran afectar la salud del paciente.
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>El sistema de control debía administrar dosis correctas de insulina a partir de mediciones periódicas del nivel de azúcar en sangre.</li>
+                                <li>Era necesario definir con claridad el comportamiento del sistema para evitar errores médicos.</li>
+                                <li>Existía el riesgo de ambigüedades en la implementación que comprometieran la salud del paciente.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -263,25 +226,17 @@ El sistema de control de la bomba de insulina necesitaba administrar dosis corre
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020b2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020b2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020b2">
-                            <p><br>
-Sommerville aplica el concepto de requerimientos funcionales utilizando lineamientos de redacción clara y una plantilla estructurada de siete campos. El requerimiento funcional especifica que el sistema debe medir el azúcar en sangre cada diez minutos y administrar insulina cuando sea necesario, incluyendo además la justificación de esa frecuencia de medición. Posteriormente, el requerimiento se detalla mediante campos estructurados como función, entradas, salidas, acción, precondiciones, postcondiciones y efectos colaterales. Esta estructura permite definir con precisión cómo debe comportarse el sistema y qué condiciones deben cumplirse antes y después de cada operación.
-                                <br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Sommerville aplica lineamientos de redacción clara y la plantilla estructurada de siete campos.</li>
+                                <li>El FR principal fija la frecuencia de medición y la condición para administrar la insulina, con su justificación explícita.</li>
+                                <li>El mismo comportamiento se desglosa luego en los siete campos (función, entradas, salidas, acción, precondiciones, postcondiciones y efectos colaterales).</li>
+                                <li>La estructura define con precisión el comportamiento del sistema y las condiciones que deben cumplirse antes y después de cada operación.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -294,25 +249,17 @@ Sommerville aplica el concepto de requerimientos funcionales utilizando lineamie
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020b3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020b3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020b3">
-                            <p><br>
-El ejemplo demuestra que la utilización de requerimientos funcionales estructurados reduce la ambigüedad y facilita la comprensión del comportamiento esperado del sistema. También permite establecer condiciones verificables para el equipo de pruebas y mejora la seguridad en sistemas críticos como una bomba de insulina. La aplicación de plantillas detalladas ayuda a asegurar que el sistema funcione correctamente bajo condiciones específicas y disminuye el riesgo de errores durante el desarrollo y la implementación.
-                                <br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los FR estructurados reducen la ambigüedad y facilitan la comprensión del comportamiento esperado del sistema.</li>
+                                <li>Permiten establecer condiciones verificables para el equipo de pruebas y mejoran la seguridad en sistemas críticos como una bomba de insulina.</li>
+                                <li>Las plantillas detalladas ayudan a asegurar que el sistema funcione correctamente bajo condiciones específicas y disminuyen el riesgo de errores.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -343,19 +290,7 @@ El ejemplo demuestra que la utilización de requerimientos funcionales estructur
 
                     <p>━━━━━━━━━━━━━━━━━━━ ◦ ❖ ◦ ━━━━━━━━━━━━━━━━━</p>
                     <li><h3>3. Los ejemplos de Laplante: tres casos de estudio recurrentes</h3></li>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020c'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 3 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020c'); return false;" class="desarrollo-ejemplo"><span class="ej-num">3</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">Los ejemplos de Laplante — tres casos de estudio recurrentes</span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020c">
                     <p>
                     <h4>
@@ -379,29 +314,33 @@ El ejemplo demuestra que la utilización de requerimientos funcionales estructur
                             FRs concretos que implementen la autenticación y el control de acceso (Laplante, 2017, p. 10)35
                             .
                         </h5>
-                    
+
+                        <div class="procedimiento">
+                            <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                            <ol>
+                                <li>Identifica los tres casos de estudio que Laplante repite a lo largo del libro (equipaje, punto de venta, hogar inteligente).</li>
+                                <li>Observa el uso del verbo «shall» y la numeración jerárquica en el caso del equipaje.</li>
+                                <li>Compara el ejemplo de comportamiento permitido con el de comportamiento prohibido.</li>
+                                <li>Localiza la traducción de un NFR de seguridad a uno o varios FR de autenticación y control de acceso.</li>
+                                <li>Extrae la lección: «shall» formaliza la obligación y los NFR de seguridad generan FR derivados.</li>
+                            </ol>
+                        </div>
+
                         <br></br>
                         <img src="media/img/E3.png" border="0" width="650" alt=""><center><small>(Figura: Casos de estudio.)</small></center>
                         <br></br>
 
-                        <a href="#" onclick="toggleVisibility('hiddenText020c1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020c1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020c1">
-                            <p><br>
-Los distintos sistemas presentados por Laplante, como el sistema de manejo de equipajes, el punto de venta para una tienda de mascotas y el hogar inteligente, necesitaban definir claramente cómo debía reaccionar el software ante determinadas entradas y condiciones. El problema consistía en evitar ambigüedades en la especificación de comportamientos, asegurar que el sistema ejecutara únicamente las acciones permitidas y relacionar correctamente los requerimientos funcionales con restricciones de seguridad y control de acceso.<br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los sistemas de Laplante (equipaje, punto de venta, hogar inteligente) necesitaban definir con claridad cómo debía reaccionar el software ante entradas y condiciones específicas.</li>
+                                <li>Era necesario evitar ambigüedades en la especificación de comportamientos y asegurar que el sistema ejecutara solo las acciones permitidas.</li>
+                                <li>Había que relacionar correctamente los FR con restricciones de seguridad y control de acceso.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -414,26 +353,17 @@ Los distintos sistemas presentados por Laplante, como el sistema de manejo de eq
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020c2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020c2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020c2">
-                            <p><br>
-Laplante aplica el concepto de requerimientos funcionales utilizando ejemplos redactados con el verbo “shall”, lo que permite expresar obligaciones claras y verificables del sistema. En el sistema de manejo de equipajes se especifica tanto un comportamiento permitido como uno prohibido, indicando que el sistema debe manejar hasta cierta cantidad de equipajes por minuto y que la banda transportadora no debe moverse cuando el sistema esté inactivo. En el sistema de punto de venta se describe cómo una entrada específica, como presionar el botón “total”, produce una transición de estado dentro del sistema. Además, el autor muestra cómo un requerimiento no funcional de seguridad puede transformarse en requerimientos funcionales concretos relacionados con autenticación y control de acceso.<br>
-                                <br>
-
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Laplante redacta sus FR con el verbo «shall» para expresar obligaciones claras y verificables.</li>
+                                <li>En el sistema de equipajes muestra tanto un comportamiento permitido como uno prohibido (la banda transportadora no debe moverse en modo inactivo).</li>
+                                <li>En el punto de venta, una entrada específica (presionar «total») produce una transición de estado, descrita en una sola oración.</li>
+                                <li>Muestra también cómo un NFR de seguridad se traduce en FR concretos de autenticación y control de acceso.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -446,24 +376,17 @@ Laplante aplica el concepto de requerimientos funcionales utilizando ejemplos re
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020c3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020c3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020c3">
-                            <p><br>
-El ejemplo demuestra que los requerimientos funcionales bien redactados permiten definir de manera precisa las acciones, restricciones y respuestas esperadas del sistema. También evidencia que el uso de estructuras claras y verbos obligatorios facilita la verificación y reduce errores de interpretación durante el desarrollo. Finalmente, se muestra cómo los requerimientos no funcionales pueden generar requerimientos funcionales derivados que implementen mecanismos específicos de seguridad y control dentro del sistema.<br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los FR bien redactados definen con precisión acciones, restricciones y respuestas esperadas del sistema.</li>
+                                <li>El uso de estructuras claras y verbos obligatorios facilita la verificación y reduce errores de interpretación.</li>
+                                <li>Los NFR pueden generar FR derivados que implementen mecanismos específicos de seguridad y control dentro del sistema.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -494,19 +417,7 @@ El ejemplo demuestra que los requerimientos funcionales bien redactados permiten
 
                     <p>━━━━━━━━━━━━━━━━━━━ ◦ ❖ ◦ ━━━━━━━━━━━━━━━━━</p>
                     <li><h3>4. Los ejemplos de Robertson & Robertson: el caso IceBreaker                    </h3></li>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020d'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 4 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020d'); return false;" class="desarrollo-ejemplo"><span class="ej-num">4</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">Los ejemplos de Robertson & Robertson — el caso IceBreaker</span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020d">
                     <p>
                     <h4>
@@ -536,28 +447,31 @@ El ejemplo demuestra que los requerimientos funcionales bien redactados permiten
                             de requerimiento crítico: de él dependen vidas humanas en carreteras heladas.
                         </h5>
 
+                        <div class="procedimiento">
+                            <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                            <ol>
+                                <li>Identifica el proyecto IceBreaker (planeación del deshielo de carreteras) y la forma canónica «The product shall...».</li>
+                                <li>Observa la descomposición de un escenario de caso de uso en cinco FR atómicos: una oración por requerimiento, un verbo activo por oración.</li>
+                                <li>Analiza el par <em>Description</em> + <em>Rationale</em> aplicado a un mismo requerimiento.</li>
+                                <li>Extrae la lección: el <em>rationale</em> eleva un FR trivial a requerimiento crítico al hacer explícita la razón de negocio.</li>
+                            </ol>
+                        </div>
+
                         <br></br>
                         <img src="media/img/E4.png" border="0" width="650" alt=""><center><small>(Figura: IceBreaker.)</small></center>
                         <br></br>
 
-                        <a href="#" onclick="toggleVisibility('hiddenText020d1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020d1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020d1">
-                            <p><br>
-El sistema IceBreaker necesitaba planificar el deshielo de carreteras y predecir qué vías podrían congelarse dentro de un determinado intervalo de tiempo. El problema principal era definir de manera precisa las funciones que el sistema debía realizar para evitar errores en la programación del tratamiento de carreteras, ya que una mala especificación podía afectar la seguridad vial y poner en riesgo vidas humanas.<br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>El sistema IceBreaker debía planificar el deshielo de carreteras y predecir qué vías podrían congelarse dentro de un intervalo de tiempo.</li>
+                                <li>Era necesario definir con precisión las funciones del sistema para evitar errores en la programación del tratamiento de carreteras.</li>
+                                <li>Una mala especificación podía afectar la seguridad vial y poner en riesgo vidas humanas.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -570,25 +484,17 @@ El sistema IceBreaker necesitaba planificar el deshielo de carreteras y predecir
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020d2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020d2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020d2">
-                            <p><br>
-Robertson y Robertson aplican el concepto de requerimientos funcionales utilizando la metodología Volere y la estructura canónica “The product shall...”. Los autores muestran cómo un escenario general de uso puede descomponerse en múltiples requerimientos funcionales atómicos y verificables. A partir de una acción simple realizada por el ingeniero, como ingresar una fecha y un identificador de distrito, se derivan varios requerimientos específicos relacionados con validación de fechas, verificación de distritos y confirmación de datos. Además, se introduce el uso conjunto de Description y Rationale, donde no solo se especifica qué debe hacer el sistema, sino también por qué esa función es importante para el negocio o la seguridad.
-<br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Robertson y Robertson aplican la metodología <em>Volere</em> y la forma canónica «The product shall...».</li>
+                                <li>Muestran cómo un escenario general se descompone en múltiples FR atómicos y verificables.</li>
+                                <li>A partir de una acción simple del ingeniero (ingresar fecha e identificador de distrito) se derivan FR específicos de validación, verificación y confirmación.</li>
+                                <li>Introducen el par <em>Description</em> + <em>Rationale</em>, que no solo especifica qué hace el sistema sino por qué importa para el negocio o la seguridad.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -601,25 +507,17 @@ Robertson y Robertson aplican el concepto de requerimientos funcionales utilizan
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020d3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020d3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020d3">
-                            <p><br>
-El ejemplo demuestra que la descomposición de escenarios en requerimientos funcionales específicos permite obtener especificaciones claras, verificables y fáciles de implementar. También evidencia que incluir la justificación o rationale ayuda a comprender la importancia real de cada requerimiento y facilita la toma de decisiones durante el desarrollo. Finalmente, el caso IceBreaker muestra cómo una correcta especificación funcional puede contribuir directamente a la seguridad y prevención de riesgos en sistemas críticos.
-                                <br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>La descomposición de escenarios en FR específicos produce especificaciones claras, verificables y fáciles de implementar.</li>
+                                <li>Incluir el <em>rationale</em> ayuda a comprender la importancia real de cada requerimiento y facilita la toma de decisiones durante el desarrollo.</li>
+                                <li>El caso IceBreaker muestra cómo una correcta especificación funcional puede contribuir directamente a la seguridad y prevención de riesgos en sistemas críticos.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -650,19 +548,7 @@ El ejemplo demuestra que la descomposición de escenarios en requerimientos func
 
                     <p>━━━━━━━━━━━━━━━━━━━ ◦ ❖ ◦ ━━━━━━━━━━━━━━━━━</p>
                     <li><h3>5. Los ejemplos del Volere Knowledge Model</h3></li>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020f'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i> Desarrollo ejemplo 5 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020f'); return false;" class="desarrollo-ejemplo"><span class="ej-num">5</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">Los ejemplos del Volere Knowledge Model — </span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020f">
                     <p>
                     <h4>
@@ -673,30 +559,32 @@ El ejemplo demuestra que la descomposición de escenarios en requerimientos func
                         es casual: cada uno de los cuatro verbos —calcular, analizar, registrar, encontrar— corresponde a una de las operaciones CRUD (create, read, update, delete) que los autores consideran
                         consustanciales a todo FR
                     </h5>
-                    
+
+                    <div class="procedimiento">
+                        <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                        <ol>
+                            <li>Localiza los cuatro ejemplos del Apéndice D: «calcular la tarifa», «analizar la composición química», «registrar el cambio de nombre», «encontrar la nueva ruta».</li>
+                            <li>Identifica el verbo principal de cada uno y asígnalo a una operación CRUD.</li>
+                            <li>Reconoce que los cuatro ejemplos provienen de dominios muy distintos, pero comparten estructura verbal.</li>
+                            <li>Extrae la lección: todo FR puede reducirse, en el fondo, a una operación CRUD sobre un objeto del dominio.</li>
+                        </ol>
+                    </div>
+
                         <br></br>
                         <img src="media/img/E5.png" border="0" width="650" alt=""><center><small>(Figura: Volere Knowledge Model.)</small></center>
                         <br></br>
 
-                        <a href="#" onclick="toggleVisibility('hiddenText020f1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020f1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020f1">
-                            <p><br>
-Los sistemas de software necesitan definir claramente las acciones que deben ejecutar sobre la información y los procesos internos. El problema consiste en identificar y especificar de forma precisa las operaciones fundamentales que el sistema debe realizar para garantizar que los datos puedan ser procesados, consultados y actualizados correctamente.<br>
-
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los sistemas de software necesitan definir con claridad las acciones que deben ejecutar sobre la información y los procesos internos.</li>
+                                <li>Hay que identificar y especificar de forma precisa las operaciones fundamentales que el sistema debe realizar.</li>
+                                <li>El objetivo es garantizar que los datos puedan ser procesados, consultados y actualizados correctamente.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -709,25 +597,16 @@ Los sistemas de software necesitan definir claramente las acciones que deben eje
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020f2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020f2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020f2">
-                            <p><br>
-Robertson y Robertson aplican el concepto de requerimientos funcionales utilizando ejemplos breves que representan operaciones esenciales dentro de un sistema. Los ejemplos “calcular la tarifa”, “analizar la composición química”, “registrar el cambio de nombre” y “encontrar la nueva ruta” muestran cómo los requerimientos funcionales se expresan mediante verbos de acción que describen comportamientos concretos del software. Cada verbo representa una operación básica relacionada con el manejo de información y refleja funciones fundamentales que todo sistema debe poder ejecutar.
-                                <br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Robertson y Robertson ilustran el concepto de FR con ejemplos breves que representan operaciones esenciales dentro de un sistema.</li>
+                                <li>«Calcular la tarifa», «analizar la composición química», «registrar el cambio de nombre» y «encontrar la nueva ruta» muestran cómo los FR se expresan con verbos de acción.</li>
+                                <li>Cada verbo corresponde a una operación básica de manejo de información y refleja una función fundamental de todo sistema.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -740,24 +619,17 @@ Robertson y Robertson aplican el concepto de requerimientos funcionales utilizan
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020f3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020f3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020f3">
-                            <p><br>
-El ejemplo demuestra que los requerimientos funcionales deben centrarse en acciones específicas y verificables realizadas por el sistema. También evidencia que el uso de verbos claros facilita la identificación del comportamiento esperado y ayuda a estructurar las funciones principales del software. Finalmente, se concluye que muchas funcionalidades de los sistemas pueden relacionarse con operaciones básicas de manejo de datos y procesos, lo que permite organizar y comprender mejor los requerimientos funcionales.<br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los FR deben centrarse en acciones específicas y verificables realizadas por el sistema.</li>
+                                <li>El uso de verbos claros facilita la identificación del comportamiento esperado y ayuda a estructurar las funciones principales del software.</li>
+                                <li>Muchas funcionalidades pueden relacionarse con operaciones básicas de manejo de datos y procesos, lo que permite organizar mejor los FR.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -791,19 +663,7 @@ El ejemplo demuestra que los requerimientos funcionales deben centrarse en accio
                     <li><h3>6. Los ejemplos de Wiegers & Beatty: el sistema de aerolínea
 
                     </h3></li>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020e'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 6 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020e'); return false;" class="desarrollo-ejemplo"><span class="ej-num">6</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">Los ejemplos de Wiegers & Beatty — el sistema de aerolínea</span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020e">
                     <p>
                     <h4>
@@ -832,28 +692,32 @@ El ejemplo demuestra que los requerimientos funcionales deben centrarse en accio
                         trata, sin tener que cruzarla contra una tabla
                     </h5>
 
+                    <div class="procedimiento">
+                        <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                        <ol>
+                            <li>Lee los dos ejemplos del sistema de reservas de la aerolínea, ambos con la fórmula «shall».</li>
+                            <li>Relaciona el primero con la plantilla Alexander-Stevens y el segundo con la sintaxis EARS para FR condicionales.</li>
+                            <li>Compara con el ejemplo del Chemical Tracking System (CTS) y el del caso de uso con diálogo actor–sistema.</li>
+                            <li>Observa la convención de identificadores jerárquicos textuales del CTS (<em>Request.Find.Vendor</em>) frente a la numeración simple (<em>FR-26</em>).</li>
+                            <li>Extrae la lección: la plantilla y la sintaxis elegidas determinan la legibilidad, y el identificador debe bastar para entenderse solo.</li>
+                        </ol>
+                    </div>
+
                         <br></br>
                         <img src="media/img/E6.png" border="0" width="650" alt=""><center><small>(Figura: Wiegers & Beatty)</small></center>
                         <br></br>
 
-                        <a href="#" onclick="toggleVisibility('hiddenText020e1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020e1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020e1">
-                            <p><br>
-Los sistemas de reservas y gestión química necesitaban definir con claridad cómo debía comportarse el software bajo determinadas condiciones y acciones realizadas por los usuarios. El problema principal era redactar requerimientos funcionales que describieran de manera precisa las respuestas esperadas del sistema, evitando ambigüedades y facilitando la comprensión tanto para desarrolladores como para analistas y equipos de prueba.<br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los sistemas de reservas y de gestión química necesitaban definir con claridad cómo debía comportarse el software bajo condiciones y acciones de los usuarios.</li>
+                                <li>Era necesario redactar FR que describieran con precisión las respuestas esperadas del sistema.</li>
+                                <li>Había que evitar ambigüedades y facilitar la comprensión de desarrolladores, analistas y equipos de prueba.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -866,25 +730,18 @@ Los sistemas de reservas y gestión química necesitaban definir con claridad c�
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020e2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020e2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020e2">
-                            <p><br>
-Wiegers y Beatty aplican el concepto de requerimientos funcionales mediante plantillas estructuradas y sintaxis estandarizadas. En el sistema de reservas de aerolínea utilizan expresiones con “shall” para describir capacidades específicas del pasajero y respuestas automáticas del sistema bajo ciertas condiciones. También emplean la plantilla Alexander-Stevens y la sintaxis EARS para estructurar requerimientos funcionales condicionales de manera clara y verificable. En el Chemical Tracking System se presentan ejemplos donde el actor interactúa con el sistema para recuperar, editar o registrar información. Además, los autores utilizan identificadores jerárquicos textuales para organizar los requerimientos y hacer que cada uno sea fácilmente reconocible por su nombre.
-                                <br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Wiegers y Beatty aplican plantillas estructuradas y sintaxis estandarizadas para los FR.</li>
+                                <li>En el sistema de reservas usan «shall» para describir capacidades del pasajero y respuestas automáticas bajo ciertas condiciones.</li>
+                                <li>Emplean la plantilla Alexander-Stevens y la sintaxis EARS para FR condicionales, claros y verificables.</li>
+                                <li>En el Chemical Tracking System muestran al actor recuperando, editando o registrando información.</li>
+                                <li>Utilizan identificadores jerárquicos textuales para que cada FR sea reconocible por su nombre.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -897,24 +754,17 @@ Wiegers y Beatty aplican el concepto de requerimientos funcionales mediante plan
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020e3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020e3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020e3">
-                            <p><br>
-El ejemplo demuestra que las plantillas estructuradas y las convenciones de redacción ayudan a producir requerimientos funcionales más claros, comprensibles y verificables. También evidencia que el uso de condiciones explícitas mejora la definición del comportamiento esperado del sistema frente a distintas situaciones. Finalmente, la utilización de identificadores jerárquicos facilita la organización y trazabilidad de los requerimientos dentro de la documentación del sistema.<br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Las plantillas estructuradas y las convenciones de redacción producen FR más claros, comprensibles y verificables.</li>
+                                <li>El uso de condiciones explícitas mejora la definición del comportamiento esperado frente a distintas situaciones.</li>
+                                <li>Los identificadores jerárquicos facilitan la organización y trazabilidad de los FR dentro de la documentación del sistema.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -945,19 +795,7 @@ El ejemplo demuestra que las plantillas estructuradas y las convenciones de reda
                     
                     <p>━━━━━━━━━━━━━━━━━━━ ◦ ❖ ◦ ━━━━━━━━━━━━━━━━━</p>
                     <li><h3>7. El ejemplo aislado de Pressman: el sistema de depósito con sensores</h3></li>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020g'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 7 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020g'); return false;" class="desarrollo-ejemplo"><span class="ej-num">7</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">El ejemplo aislado de Pressman — el sistema de depósito con sensores</span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020g">
                     <p>
                     <h4>
@@ -981,29 +819,33 @@ El ejemplo demuestra que las plantillas estructuradas y las convenciones de reda
                             UC-9 (Wiegers & Beatty, 2013, p. 187)41
                             .
                         </h5>
-                        
+
+                        <div class="procedimiento">
+                            <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                            <ol>
+                                <li>Lee el único ejemplo concreto de FR en lenguaje natural que Pressman ofrece (capítulo de métodos formales).</li>
+                                <li>Identifica sus elementos: sujeto, verbo modal de obligación, acciones, condiciones cuantificables y origen de los datos.</li>
+                                <li>Compara la redacción con la plantilla Alexander-Stevens implícita que Pressman aplica en español peninsular.</li>
+                                <li>Observa el esquema de identificación mínimo (<em>F09</em>) y su coincidencia con la convención <em>FR-26</em> de Wiegers y Beatty.</li>
+                                <li>Extrae la lección: con sujeto, verbo, acción y condición, basta para redactar un FR verificable.</li>
+                            </ol>
+                        </div>
+
                         <br></br>
                         <img src="media/img/E7.png" border="0" width="650" alt=""><center><small>(Figura: Cajero ATM con sensores.)</small></center>
                         <br></br>
 
-                        <a href="#" onclick="toggleVisibility('hiddenText020g1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020g1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020g1">
-                            <p><br>
-El sistema de control del depósito necesitaba mantener registros periódicos de información obtenida mediante sensores de profundidad y almacenar esos datos durante un periodo determinado. El problema principal era definir de forma clara las funciones obligatorias del sistema y establecer una manera simple de identificar y organizar los requerimientos funcionales dentro de la documentación.<br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>El sistema de control del depósito debía mantener registros periódicos a partir de sensores de profundidad y almacenarlos durante un periodo determinado.</li>
+                                <li>Era necesario definir con claridad las funciones obligatorias del sistema.</li>
+                                <li>Faltaba una manera simple de identificar y organizar los FR dentro de la documentación.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1016,25 +858,16 @@ El sistema de control del depósito necesitaba mantener registros periódicos de
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020g2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020g2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020g2">
-                            <p><br>
-Pressman aplica el concepto de requerimientos funcionales mediante un ejemplo redactado en lenguaje natural donde se especifica que el sistema debe mantener registros horarios del depósito y almacenar la información obtenida de los sensores durante los últimos seis meses. El requerimiento incluye elementos fundamentales como el sujeto, acciones concretas, restricciones temporales y el origen de los datos. Además, el autor propone un esquema sencillo de identificación utilizando la letra “F” seguida de un número para clasificar y organizar los requerimientos funcionales dentro del sistema.
-                                <br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Pressman muestra el concepto de FR con un ejemplo en lenguaje natural: el sistema debe mantener registros horarios del depósito y almacenar la información de los sensores durante seis meses.</li>
+                                <li>El FR incluye sujeto, acciones concretas, restricciones temporales y origen de los datos.</li>
+                                <li>Propone un esquema de identificación sencillo con la letra «F» seguida de un número para clasificar y organizar los FR.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1047,24 +880,17 @@ Pressman aplica el concepto de requerimientos funcionales mediante un ejemplo re
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020g3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020g3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020g3">
-                            <p><br>
-El ejemplo demuestra que un requerimiento funcional puede describirse de manera breve pero suficientemente precisa si contiene acciones claras, condiciones cuantificables y responsabilidades definidas del sistema. También evidencia que los sistemas de identificación simples ayudan a mejorar la organización y trazabilidad de los requerimientos dentro de la documentación del proyecto. Finalmente, se muestra que incluso ejemplos cortos pueden servir como modelos efectivos para redactar requerimientos funcionales comprensibles y verificables.<br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Un FR puede describirse de forma breve y suficientemente precisa si contiene acciones claras, condiciones cuantificables y responsabilidades del sistema.</li>
+                                <li>Los sistemas de identificación simples mejoran la organización y trazabilidad de los FR dentro de la documentación.</li>
+                                <li>Incluso ejemplos cortos pueden servir como modelos efectivos para redactar FR comprensibles y verificables.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1095,19 +921,7 @@ El ejemplo demuestra que un requerimiento funcional puede describirse de manera 
 
                     <p>━━━━━━━━━━━━━━━━━━━ ◦ ❖ ◦ ━━━━━━━━━━━━━━━━━</p>
                     <li><h3>8. Los ejemplos de Celi-Párraga: el sistema de pedidos de alimentos</h3></li>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020h'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 8 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020h'); return false;" class="desarrollo-ejemplo"><span class="ej-num">8</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">Los ejemplos de Celi-Párraga — el sistema de pedidos de alimentos</span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020h">
                     <p>
                     <h4>
@@ -1119,31 +933,34 @@ El ejemplo demuestra que un requerimiento funcional puede describirse de manera 
                         requerimiento funcional candidato del sistema, y el diagrama deja ver cómo los FRs no son
                         simples enunciados aislados, sino nodos en una red de relaciones entre quienes usan el sistema
                         y los servicios que éste provee.
-                        
+
                     </h5>
-                    
+
+                    <div class="procedimiento">
+                        <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                        <ol>
+                            <li>Identifica los cuatro actores del sistema de pedidos de alimentos (Cliente, Vendedor, Administrador, Cocinero).</li>
+                            <li>Localiza las siete interacciones funcionales del diagrama (pedir, entregar dinero, preparar, entregar, calentar, pagar, relación con proveedores).</li>
+                            <li>Relaciona cada interacción con el o los actores involucrados.</li>
+                            <li>Extrae la lección: los FR no son enunciados aislados, sino nodos en una red de relaciones entre actores y servicios.</li>
+                        </ol>
+                    </div>
+
                         <br></br>
                         <img src="media/img/E8.png" border="0" width="650" alt=""><center><small>(Figura: Pedidos de alimentos.)</small></center>
                         <br></br>
 
-                        <a href="#" onclick="toggleVisibility('hiddenText020h1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020h1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020h1">
-                            <p><br>
-El sistema de pedidos de alimentos necesitaba coordinar las acciones e interacciones entre distintos usuarios involucrados en el proceso, como clientes, vendedores, administradores y cocineros. El problema principal era identificar claramente las funciones que debía ofrecer el sistema y cómo cada actor interactuaba con ellas para garantizar un flujo correcto de pedidos, pagos, preparación y entrega de alimentos.<br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>El sistema de pedidos debía coordinar acciones e interacciones entre clientes, vendedores, administradores y cocineros.</li>
+                                <li>Era necesario identificar con claridad las funciones que el sistema debía ofrecer.</li>
+                                <li>Había que establecer cómo cada actor interactuaba con esas funciones para garantizar un flujo correcto de pedidos, pagos, preparación y entrega.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1156,25 +973,16 @@ El sistema de pedidos de alimentos necesitaba coordinar las acciones e interacci
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020h2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020h2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020h2">
-                            <p><br>
-Celi-Párraga et al. aplican el concepto de requerimientos funcionales mediante un modelo gráfico que relaciona actores e interacciones dentro del sistema. Cada interacción, como pedir alimentos, entregar dinero, realizar pedidos, calentar alimentos o gestionar pagos, representa un requerimiento funcional candidato. El diagrama permite visualizar cómo los actores utilizan diferentes servicios del sistema y cómo los requerimientos funcionales se conectan entre sí formando una red de relaciones e interacciones.
-                                <br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Celi-Párraga et al. muestran el concepto de FR con un modelo gráfico que relaciona actores e interacciones dentro del sistema.</li>
+                                <li>Cada interacción (pedir alimentos, entregar dinero, realizar pedidos, calentar alimentos, gestionar pagos) es un FR candidato.</li>
+                                <li>El diagrama permite visualizar cómo los actores usan los servicios del sistema y cómo los FR se conectan formando una red de relaciones.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1187,25 +995,17 @@ Celi-Párraga et al. aplican el concepto de requerimientos funcionales mediante 
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020h3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020h3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020h3">
-                            <p><br>
-El ejemplo demuestra que los requerimientos funcionales no deben verse únicamente como enunciados independientes, sino como funciones relacionadas con actores y procesos dentro del sistema. También evidencia que el uso de diagramas facilita la identificación de funcionalidades y ayuda a comprender cómo interactúan los distintos usuarios con el sistema. Finalmente, el modelo permite organizar de manera más clara las responsabilidades y servicios que el software debe proporcionar.
-                                <br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los FR no deben verse únicamente como enunciados independientes, sino como funciones relacionadas con actores y procesos del sistema.</li>
+                                <li>El uso de diagramas facilita la identificación de funcionalidades y la comprensión de las interacciones entre usuarios y sistema.</li>
+                                <li>El modelo permite organizar con mayor claridad las responsabilidades y servicios que el software debe proporcionar.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1237,19 +1037,7 @@ El ejemplo demuestra que los requerimientos funcionales no deben verse únicamen
                     <p>━━━━━━━━━━━━━━━━━━━ ◦ ❖ ◦ ━━━━━━━━━━━━━━━━━</p>
                     <li><h3>9. Los ejemplos de SWEBOK: capacidades elementales del software
                     </h3></li>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020j'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 9 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020j'); return false;" class="desarrollo-ejemplo"><span class="ej-num">9</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">Los ejemplos de SWEBOK — capacidades elementales del software</span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020j">
                     <p>
                     <h4>
@@ -1259,31 +1047,34 @@ El ejemplo demuestra que los requerimientos funcionales no deben verse únicamen
                             —uno es una operación de software ofimático, el otro una operación de procesamiento de señales—, los autores subrayan que la categoría «requerimiento funcional» es transversal a todos
                             los dominios de aplicación. Lo que hace funcional a un requerimiento no es el dominio en el que
                             vive, sino el hecho de describir una función que el software debe ejecutar.
-                            
+
                         </h5>
-                        
+
+                        <div class="procedimiento">
+                            <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                            <ol>
+                                <li>Lee los dos ejemplos deliberadamente sencillos que ofrece SWEBOK: «formatear un texto» y «modular una señal».</li>
+                                <li>Identifica el dominio de cada uno (ofimática y procesamiento de señales).</li>
+                                <li>Compara la diversidad de dominios con la similitud estructural: ambos describen una acción ejecutada por el software.</li>
+                                <li>Extrae la lección: la categoría «requerimiento funcional» es transversal a todos los dominios de aplicación.</li>
+                            </ol>
+                        </div>
+
                         <br></br>
                         <img src="media/img/E9.jpg" border="0" width="650" alt=""><center><small>(Figura: Software.)</small></center>
                         <br></br>
 
-                        <a href="#" onclick="toggleVisibility('hiddenText020j1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020j1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020j1">
-                            <p><br>
-Los sistemas de software, independientemente de su área de aplicación, necesitan definir claramente las funciones que deben ejecutar. El problema consiste en comprender que los requerimientos funcionales pueden existir en cualquier dominio y que muchas veces se confunden con características específicas del área de aplicación en lugar de centrarse en la función que el sistema debe realizar.<br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los sistemas de software, independientemente de su área de aplicación, necesitan definir con claridad las funciones que deben ejecutar.</li>
+                                <li>Los FR pueden existir en cualquier dominio, pero muchas veces se confunden con características específicas del área de aplicación.</li>
+                                <li>El reto es centrarse en la función que el sistema debe realizar, no en los rasgos del dominio.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1296,25 +1087,16 @@ Los sistemas de software, independientemente de su área de aplicación, necesit
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020j2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020j2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020j2">
-                            <p><br>
-Bourque y Fairley aplican el concepto de requerimientos funcionales utilizando ejemplos simples pertenecientes a dominios diferentes, como formatear un texto y modular una señal. A través de estos casos muestran que un requerimiento funcional se caracteriza por describir una acción o función que el software debe ejecutar, sin importar si pertenece a un sistema ofimático, industrial, científico o de procesamiento de señales.
-                                <br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Bourque y Fairley ilustran el concepto de FR con ejemplos simples de dominios diferentes («formatear un texto» y «modular una señal»).</li>
+                                <li>El FR se caracteriza por describir una acción o función que el software debe ejecutar, sin importar el dominio.</li>
+                                <li>La categoría se aplica por igual a sistemas ofimáticos, industriales, científicos o de procesamiento de señales.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1327,24 +1109,17 @@ Bourque y Fairley aplican el concepto de requerimientos funcionales utilizando e
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020j3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020j3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020j3">
-                            <p><br>
-El ejemplo demuestra que los requerimientos funcionales son independientes del dominio de aplicación y que su característica principal es describir comportamientos o funciones del sistema. También evidencia que cualquier sistema de software, sin importar su propósito, necesita especificar claramente las acciones que debe realizar para satisfacer las necesidades del usuario o del proceso que soporta.<br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los FR son independientes del dominio de aplicación y su característica principal es describir comportamientos o funciones del sistema.</li>
+                                <li>Cualquier sistema, sin importar su propósito, debe especificar con claridad las acciones que debe realizar.</li>
+                                <li>La consecuencia práctica: la noción de FR es transversal a todo tipo de software.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1375,19 +1150,7 @@ El ejemplo demuestra que los requerimientos funcionales son independientes del d
 
                     <p>━━━━━━━━━━━━━━━━━━━ ◦ ❖ ◦ ━━━━━━━━━━━━━━━━━</p>
                     <li><h3>10. Los ejemplos de Meyer et al.: la reclasificación crítica</h3></li>
-                    <br><a href="#" onclick="toggleVisibility('hiddenText020k'); return false;" style="
-                    display: block;
-                    font-weight: bold;
-                    color: #000000;
-                    background-color: #f6aa1c;
-                    border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                    border-radius: 10px;
-                    text-align: center;
-                    width: auto;
-                    height: 70px ">
-                  
-                    <strong><br> ❖ &emsp;<i>Desarrollo ejemplo 10 </i></strong>
-                </a>
+                    <a href="#" onclick="toggleVisibility('hiddenText020k'); return false;" class="desarrollo-ejemplo"><span class="ej-num">10</span><span class="ej-titulo"><span class="ej-titulo-principal">Desarrollo del ejemplo</span><span class="ej-titulo-secundario">Los ejemplos de Meyer et al. — la reclasificación crítica</span></span></a>
                 <div style="display: none; margin-top: 10px;" id="hiddenText020k">
                     <p>
                     <h4>
@@ -1408,31 +1171,34 @@ El ejemplo demuestra que los requerimientos funcionales son independientes del d
                             se reclasifica simplemente como Behavior (Meyer et al., 2019, §6, p. 15)42. En contraste, un
                             enunciado típicamente catalogado como no funcional —«El sistema deberá estar completamente operativo al menos el x % del tiempo»— se reclasifica como Constraint (Meyer et al., 2019,
                             §6, p. 16)43. La lección es práctica: distinga siempre entre lo que el sistema hace (Behavior, FR)
-                            y las restricciones sobre cómo lo hace o cuándo está disponible (Constraint, NFR).                            
+                            y las restricciones sobre cómo lo hace o cuándo está disponible (Constraint, NFR).
                         </h5>
-                    
+
+                        <div class="procedimiento">
+                            <span class="procedimiento-titulo">Procedimiento para seguir el ejemplo</span>
+                            <ol>
+                                <li>Identifica la diferencia entre las categorías <em>Behavior</em> (lo que el sistema hace) y <em>Constraint</em> (cómo o cuándo lo hace).</li>
+                                <li>Lee el ejemplo mínimo de <em>Behavior</em>: «Mostrar la lista de elementos disponibles».</li>
+                                <li>Compara con los casos clásicos de <em>Constraint</em>: «límites de tiempo» y «condiciones de seguridad».</li>
+                                <li>Observa la reclasificación de un enunciado industrial real (Bair, 2006) en cada categoría.</li>
+                                <li>Extrae la lección: la frontera entre FR y NFR se traza por la pregunta «¿qué hace el sistema?» frente a «¿bajo qué condiciones lo hace?».</li>
+                            </ol>
+                        </div>
+
                         <br></br>
                         <img src="media/img/E10.png" border="0" width="650" alt=""><center><small>(Figura: reclasificación crítica.)</small></center>
                         <br></br>
 
-                        <a href="#" onclick="toggleVisibility('hiddenText020k1'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Problema
-                        </a>
+                        <div class="pasos-ejemplo">
+<a href="#" onclick="toggleVisibility('hiddenText020k1'); return false;" class="paso-btn paso-problema"><span class="paso-num">1</span><span>Problema</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020k1">
-                            <p><br>
-Los documentos de requisitos suelen mezclar requerimientos funcionales y no funcionales, lo que puede generar confusión al momento de clasificar y analizar el comportamiento esperado del sistema. El problema principal consiste en distinguir claramente entre las funciones que el sistema debe realizar y las restricciones relacionadas con rendimiento, disponibilidad o seguridad.<br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los documentos de requisitos suelen mezclar FR y NFR, lo que genera confusión al clasificar y analizar el comportamiento esperado del sistema.</li>
+                                <li>El reto es distinguir con claridad entre las funciones que el sistema debe realizar y las restricciones de rendimiento, disponibilidad o seguridad.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1445,25 +1211,17 @@ Los documentos de requisitos suelen mezclar requerimientos funcionales y no func
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020k2'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Aplicación del concepto
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020k2'); return false;" class="paso-btn paso-aplicacion"><span class="paso-num">2</span><span>Aplicación del concepto</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020k2">
-                            <p><br>
-Meyer et al. aplican una taxonomía de clasificación de requisitos basada en categorías como Behavior y Constraint. Utilizan ejemplos simples para mostrar que un requerimiento funcional describe un comportamiento observable del sistema, como mostrar una lista de elementos disponibles, sin especificar cómo se implementa internamente. En contraste, propiedades relacionadas con tiempos de respuesta, disponibilidad o seguridad son clasificadas como restricciones no funcionales. Los autores también analizan ejemplos provenientes de documentos industriales y reclasifican requerimientos tradicionales según esta taxonomía para diferenciar claramente entre comportamiento y restricciones.
-                                <br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Meyer et al. aplican una taxonomía basada en <em>Behavior</em> y <em>Constraint</em>.</li>
+                                <li>Un FR describe un comportamiento observable del sistema (p. ej., «mostrar una lista de elementos disponibles»), sin especificar el cómo.</li>
+                                <li>Las propiedades de tiempo de respuesta, disponibilidad o seguridad se clasifican como restricciones (NFR).</li>
+                                <li>Los autores analizan documentos industriales y reclasifican requerimientos tradicionales para diferenciar comportamiento de restricciones.</li>
+                            </ul>
                         </div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);
@@ -1476,24 +1234,17 @@ Meyer et al. aplican una taxonomía de clasificación de requisitos basada en ca
                         </script>
                         <br>
             
-                        <a href="#" onclick="toggleVisibility('hiddenText020k3'); return false;" style="
-                            display: block;
-                            font-weight: bold;
-                            color: #000000;
-                            background-color: #f6aa1c;
-                            border: 1px solid #ffffff; /* Añade un contorno de 1px de ancho con color rojo (#ff0000) */
-                            border-radius: 10px;
-                            text-align: center;
-                            width: auto;
-                            height: 70px ">
-                  
-                            <strong><br> Resultado
-                        </a>
+                        <a href="#" onclick="toggleVisibility('hiddenText020k3'); return false;" class="paso-btn paso-resultado"><span class="paso-num">3</span><span>Resultado</span></a>
                         <div style="display: none; margin-top: 10px;" id="hiddenText020k3">
-                            <p><br>
-El ejemplo demuestra que los requerimientos funcionales deben enfocarse en describir qué hace el sistema, mientras que los requerimientos no funcionales establecen condiciones o restricciones sobre cómo debe operar. También evidencia que una correcta clasificación facilita el análisis y organización de los requisitos dentro de un proyecto de software. Finalmente, la taxonomía propuesta ayuda a evitar confusiones entre funcionalidades del sistema y características relacionadas con calidad, rendimiento o disponibilidad.<br><br>
-                            </p>
+<div class="paso-contenido">
+                            <ul class="bloque-inferior">
+                                <li>Los FR deben enfocarse en describir qué hace el sistema; los NFR establecen condiciones o restricciones sobre cómo opera.</li>
+                                <li>Una clasificación correcta facilita el análisis y la organización de los requisitos en un proyecto de software.</li>
+                                <li>La taxonomía propuesta ayuda a evitar confusiones entre funcionalidades y características de calidad, rendimiento o disponibilidad.</li>
+                            </ul>
                         </div>
+</div>
+</div>
                         <script>
                             function toggleVisibility(id) {
                                 var element = document.getElementById(id);

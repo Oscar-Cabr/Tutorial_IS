@@ -4,10 +4,183 @@
 * 2025-1
 ****************************/
 
-/* 
+/*
 GENERAL & DEFAULTS
-============================================================== 
+=============================================================
 */
+
+/* Botón principal "Desarrollo ejemplo N": grande, prominente, con título del ejemplo */
+.desarrollo-ejemplo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 18px 22px;
+  margin: 12px 0 4px 0;
+  font-size: 1.35em;
+  font-weight: bold;
+  color: #1a1a1a;
+  background: linear-gradient(135deg, #f6aa1c 0%, #ffd28a 100%);
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  text-decoration: none;
+}
+.desarrollo-ejemplo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(246, 170, 28, 0.4);
+  filter: brightness(1.05);
+}
+.desarrollo-ejemplo:active {
+  transform: translateY(0);
+}
+.desarrollo-ejemplo .ej-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  background: #1a1a1a;
+  color: #f6aa1c;
+  border-radius: 50%;
+  font-size: 1.1em;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.desarrollo-ejemplo .ej-titulo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.desarrollo-ejemplo .ej-titulo .ej-titulo-principal {
+  font-size: 1.05em;
+}
+.desarrollo-ejemplo .ej-titulo .ej-titulo-secundario {
+  font-size: 0.78em;
+  font-weight: normal;
+  font-style: italic;
+  color: #4a3a05;
+  margin-top: 2px;
+}
+
+/* Contenedor de los 3 pasos del ejemplo: problema / aplicación / resultado */
+.pasos-ejemplo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 18px 0 12px 0;
+  padding: 14px 0 14px 0;
+  border-left: 3px solid rgba(246, 170, 28, 0.45);
+  position: relative;
+}
+.pasos-ejemplo::before {
+  content: "Pasos del ejemplo";
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  background: #1a1a1a;
+  color: #f6aa1c;
+  font-size: 0.78em;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 8px;
+}
+
+/* Cada paso: botón compacto, numerado, con color distintivo */
+.paso-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px 10px 22px;
+  margin: 0;
+  font-size: 1.05em;
+  font-weight: 600;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, padding 0.15s ease;
+}
+.paso-btn:last-of-type {
+  border-bottom: none;
+}
+.paso-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  padding-left: 28px;
+}
+.paso-btn .paso-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 0.95em;
+  font-weight: bold;
+  color: #1a1a1a;
+  flex-shrink: 0;
+}
+.paso-btn.paso-problema { border-left: 4px solid #e57373; }
+.paso-btn.paso-problema .paso-num { background: #e57373; color: #1a1a1a; }
+.paso-btn.paso-aplicacion { border-left: 4px solid #64b5f6; }
+.paso-btn.paso-aplicacion .paso-num { background: #64b5f6; color: #1a1a1a; }
+.paso-btn.paso-resultado { border-left: 4px solid #81c784; }
+.paso-btn.paso-resultado .paso-num { background: #81c784; color: #1a1a1a; }
+
+/* Contenido expandido del paso */
+.paso-contenido {
+  margin: 4px 0 14px 22px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Procedimiento: marco distintivo para los pasos numerados */
+.procedimiento {
+  font-size: 1.25em;
+  line-height: 1.5;
+  margin: 0.8em 2em 1.2em 2em;
+  padding: 0.8em 1.2em;
+  border-left: 3px solid #f6aa1c;
+  background: rgba(246, 170, 28, 0.08);
+  border-radius: 0 8px 8px 0;
+}
+.procedimiento ol {
+  margin: 0.4em 0 0 1.4em;
+  padding: 0;
+}
+.procedimiento ol li {
+  margin-bottom: 0.4em;
+  padding-bottom: 0;
+}
+.procedimiento-titulo {
+  font-weight: bold;
+  color: #f6aa1c;
+  font-size: 1.15em;
+  display: block;
+  margin-bottom: 0.4em;
+}
+ul.bloque-inferior {
+  list-style: disc;
+  margin: 0.6em 2em 0.6em 3em;
+  padding: 0;
+}
+ul.bloque-inferior li {
+  margin-bottom: 0.4em;
+  padding-bottom: 0;
+  font-size: 1.15em;
+  line-height: 1.45;
+}
 * {
   margin: 0px;
   padding: 0px;

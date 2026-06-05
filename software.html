@@ -131,6 +131,30 @@
       font-size: 18px;
       font-weight: bold;
     }
+
+    #instrucciones {
+      font-size: 15px;
+      line-height: 1.45;
+      background: rgba(255,255,255,0.12);
+      border-left: 3px solid #f6aa1c;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    #retroalimentacion {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+      min-height: 18px;
+      text-align: left;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .retro-bien { background: rgba(76, 175, 80, 0.18); }
+    .retro-mal { background: rgba(244, 67, 54, 0.18); }
   </style>
 </head>
 
@@ -139,9 +163,18 @@
 <div class="container">
   <h1>¡Identifica los requerimientos!</h1>
 
+  <div id="instrucciones">
+    <strong>Cómo jugar:</strong> lee cada requerimiento y decide si está
+    <em>bien definido</em> (es verificable y específico) o
+    <em>mal definido</em> (es vago, ambiguo o no medible). Pulsa
+    <strong>✅ Bueno</strong> o <strong>❌ Malo</strong> antes de que se
+    acabe el tiempo. Tras responder, verás una breve explicación que justifica
+    la respuesta correcta.
+  </div>
+
   <button id="btnIniciar" onclick="iniciarJuego()">▶ Iniciar juego</button>
 
-  <p id="tiempo">Tiempo: 60</p>
+  <p id="tiempo">Tiempo: 300</p>
 
   <div class="barra">
     <div id="progreso"></div>
@@ -150,11 +183,12 @@
   <p id="puntos">Puntos: 0</p>
   <p id="maximo">Puntuación máxima: 0</p>
 
-  <div id="pregunta">Identifica si los requerimientos están bien o mal definidos.</div>
+  <div id="pregunta">Pulsa <strong>Iniciar juego</strong> para comenzar.</div>
 
   <button id="btnBueno" onclick="responder('correcto')" disabled>✅ Bueno</button>
   <button id="btnMalo" onclick="responder('incorrecto')" disabled>❌ Malo</button>
 
+  <p id="retroalimentacion">&nbsp;</p>
   <p id="resultado"></p>
 </div>
 
@@ -314,7 +348,8 @@
   let preguntas = [];
   let indice = 0;
   let puntos = 0;
-  let tiempo = 60;
+  let tiempo = 300;
+  const tiempoTotal = 300;
   let intervalo = null;
   let juegoActivo = false;
 
@@ -324,6 +359,7 @@
   const resultadoEl = document.getElementById("resultado");
   const maximoEl = document.getElementById("maximo");
   const progreso = document.getElementById("progreso");
+  const retroEl = document.getElementById("retroalimentacion");
 
   const btnBueno = document.getElementById("btnBueno");
   const btnMalo = document.getElementById("btnMalo");
@@ -351,7 +387,7 @@
 
     indice = 0;
     puntos = 0;
-    tiempo = 60;
+    tiempo = tiempoTotal;
     juegoActivo = true;
 
     preguntas = [...preguntasOriginales];
@@ -360,6 +396,8 @@
     puntosEl.textContent = "Puntos: 0";
     tiempoEl.textContent = "Tiempo: " + tiempo;
     resultadoEl.textContent = "";
+    retroEl.textContent = "";
+    retroEl.className = "";
     progreso.style.width = "100%";
 
     btnBueno.disabled = false;
@@ -372,10 +410,10 @@
       tiempo--;
       tiempoEl.textContent = "Tiempo: " + tiempo;
 
-      progreso.style.width = (tiempo / 60) * 100 + "%";
+      progreso.style.width = (tiempo / tiempoTotal) * 100 + "%";
 
-      if (tiempo > 30) progreso.style.background = "#4CAF50";
-      else if (tiempo > 15) progreso.style.background = "#FFC107";
+      if (tiempo > tiempoTotal / 2) progreso.style.background = "#4CAF50";
+      else if (tiempo > tiempoTotal / 4) progreso.style.background = "#FFC107";
       else progreso.style.background = "#f44336";
 
       if (tiempo <= 0) {
@@ -389,6 +427,8 @@
   function mostrarPregunta() {
     if (indice < preguntas.length) {
       preguntaEl.classList.add("fade");
+      retroEl.textContent = "";
+      retroEl.className = "";
       setTimeout(() => {
         preguntaEl.textContent = preguntas[indice].texto;
         preguntaEl.classList.remove("fade");
@@ -396,6 +436,27 @@
     } else {
       terminarJuego();
     }
+  }
+
+  function mostrarRetro(respuestaUsuario, correcta) {
+    const acierto = respuestaUsuario === correcta;
+    const original = preguntas[indice].texto.toLowerCase();
+    let explicacion = "";
+    if (acierto) {
+      if (correcta === "correcto") {
+        explicacion = "✔ Este requerimiento <em>sí</em> está bien definido: es verificable y establece una condición medible (cantidad, tiempo, formato o umbral concreto).";
+      } else {
+        explicacion = "✔ Correcto: el enunciado es vago o no medible (palabras como «rápido», «intuitivo», «amigable» carecen de criterio de aceptación verificable).";
+      }
+    } else {
+      if (correcta === "correcto") {
+        explicacion = "✘ En realidad <em>sí</em> está bien definido: incluye una condición medible (cantidad, tiempo o umbral) que permite verificar su cumplimiento.";
+      } else {
+        explicacion = "✘ En realidad <em>no</em> está bien definido: usa términos vagos (como «rápido», «intuitivo», «amigable») sin condición medible que permita verificarlo.";
+      }
+    }
+    retroEl.innerHTML = explicacion;
+    retroEl.className = acierto ? "retro-bien" : "retro-mal";
   }
 
   function responder(respuesta) {
@@ -415,12 +476,13 @@
     }
 
     puntosEl.textContent = "Puntos: " + puntos;
+    mostrarRetro(respuesta, correcta);
 
     setTimeout(() => {
       document.body.classList.remove("correcto", "incorrecto");
       indice++;
       mostrarPregunta();
-    }, 400);
+    }, 1400);
   }
 
   function terminarJuego() {
@@ -440,6 +502,8 @@
     }
 
     preguntaEl.textContent = "Juego terminado";
+    retroEl.textContent = "";
+    retroEl.className = "";
 
     btnBueno.disabled = true;
     btnMalo.disabled = true;

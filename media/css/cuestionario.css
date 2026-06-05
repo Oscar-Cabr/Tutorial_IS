@@ -1,9 +1,20 @@
 
-
 #revisar, #reintentar {
 	display: block;
 	height: 54px;
 	cursor: pointer;
+	transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+	border-radius: 8px;
+}
+
+#revisar:hover, #reintentar:hover {
+	transform: scale(1.04);
+	filter: brightness(1.15);
+	box-shadow: 0 4px 14px rgba(246, 170, 28, 0.45);
+}
+
+#revisar:active, #reintentar:active {
+	transform: scale(0.97);
 }
 
 #revisar {
@@ -23,5 +34,5 @@
 	width: 132px;
 	height: 120px;
 	font-size: 1.4em;
-	margin: 20px auto 60px auto;
+	margin: 16px auto 20px auto;
 }
